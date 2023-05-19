@@ -110,6 +110,7 @@
 		3B28F76F2A15DDDE000974F0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D73E82A14A82800686B5A /* LaunchScreen.storyboard */,
 				3B28F77D2A1624C9000974F0 /* Environment */,
 				3B28F77E2A1624D8000974F0 /* Resource */,
 			);
@@ -195,7 +196,6 @@
 				3B28F7712A15DEBE000974F0 /* Models */,
 				3B28F7702A15DEB5000974F0 /* Views */,
 				3B28F76E2A15DD6B000974F0 /* Controllers */,
-				3B2D73E82A14A82800686B5A /* LaunchScreen.storyboard */,
 				3B2D73EB2A14A82800686B5A /* Info.plist */,
 			);
 			path = Booky;
