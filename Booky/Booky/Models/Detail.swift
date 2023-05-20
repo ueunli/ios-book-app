@@ -9,10 +9,11 @@ import Foundation
 
 struct Detail: Codable {
     
-    let title, subtitle: String
+    let title: String
+    let subtitle: String?
     let authors: [String]
     let language: String
-    let categories: [String]
+    let categories: [String]?
     let publisher, publishedDate: String
     let description: String
     let pageCount: Int
@@ -22,8 +23,8 @@ struct Detail: Codable {
     let imageLinks: ImageLinks
     
     struct ImageLinks: Codable {
-        let smallThumbnail, thumbnail: String
-        let small, medium, large: String
+        let smallThumbnail, thumbnail: String?
+        let small, medium, large: String?
     }
     
     enum Maturity: String, Codable {

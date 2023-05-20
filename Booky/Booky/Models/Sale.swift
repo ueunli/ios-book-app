@@ -11,7 +11,7 @@ struct Sale: Codable {
     
     let saleability: SaleType
     let isEbook: Bool
-    let buyLink: String
+    let buyLink: String?
     
     enum SaleType: String, Codable {
         case free = "FREE"
