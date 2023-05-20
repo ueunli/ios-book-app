@@ -9,8 +9,15 @@ import Foundation
 
 struct Sale: Codable {
     
-    let saleability: String
+    let saleability: SaleType
     let isEbook: Bool
-    let buyLink: String
+    let buyLink: String?
+    
+    enum SaleType: String, Codable {
+        case free = "FREE"
+        case forSale = "FOR_SALE"
+        case notForSale = "NOT_FOR_SALE"
+        case forPreOrder = "FOR_PREORDER"
+    }
     
 }
