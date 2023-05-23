@@ -13,7 +13,7 @@ struct BookListDTO: Codable {
     let books: [BookDTO]
     
     enum CodingKeys: String, CodingKey {
-        case books = "items"
+        case books = "item"
         case count = "totalResults"
     }
     

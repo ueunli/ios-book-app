@@ -34,7 +34,7 @@ struct BookDTO: Codable {
         case series = "seriesInfo"
         case isAdult = "adult"
         case ratings = "customerReviewRank"
-        case detail
+        case detail = "subInfo"
     }
     
 }

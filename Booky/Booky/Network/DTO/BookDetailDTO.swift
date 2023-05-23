@@ -9,12 +9,12 @@ import Foundation
 
 struct BookDetailDTO: Codable {
     
-    let subTitle: String
-    let originalTitle: String
-    let pages: Int
+    let subTitle: String?
+    let originalTitle: String?
+    let pages: Int?
     let tableOfContents: String?
     let previewImageLinks: [String]?
-    let authors: [AuthorDTO]
+    let authors: [AuthorDTO]?
     
     enum CodingKeys: String, CodingKey {
         case subTitle, originalTitle
