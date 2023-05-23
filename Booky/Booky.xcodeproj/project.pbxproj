@@ -29,6 +29,7 @@
 		3BCE1FB32A1C8A4C002BA6D1 /* AuthorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FB22A1C8A4C002BA6D1 /* AuthorDTO.swift */; };
 		3BCE1FB52A1C8B44002BA6D1 /* SeriesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FB42A1C8B44002BA6D1 /* SeriesDTO.swift */; };
 		3BCE1FB72A1C8C88002BA6D1 /* AuthorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FB62A1C8C88002BA6D1 /* AuthorType.swift */; };
+		3BCE1FBA2A1C8D6E002BA6D1 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FB92A1C8D6E002BA6D1 /* RouterType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		3BCE1FB22A1C8A4C002BA6D1 /* AuthorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorDTO.swift; sourceTree = "<group>"; };
 		3BCE1FB42A1C8B44002BA6D1 /* SeriesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDTO.swift; sourceTree = "<group>"; };
 		3BCE1FB62A1C8C88002BA6D1 /* AuthorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorType.swift; sourceTree = "<group>"; };
+		3BCE1FB92A1C8D6E002BA6D1 /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		3B28F77F2A162510000974F0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3BCE1FB82A1C8D35002BA6D1 /* Router */,
 				3BCE1FB12A1C814B002BA6D1 /* DTO */,
 			);
 			path = Network;
@@ -233,6 +236,30 @@
 				3BCE1FB42A1C8B44002BA6D1 /* SeriesDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		3BCE1FB82A1C8D35002BA6D1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3BCE1FBB2A1C973A002BA6D1 /* Interface */,
+				3BCE1FBD2A1C974C002BA6D1 /* Implementation */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3BCE1FBB2A1C973A002BA6D1 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				3BCE1FB92A1C8D6E002BA6D1 /* RouterType.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		3BCE1FBD2A1C974C002BA6D1 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Implementation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +404,7 @@
 			files = (
 				3B2D73E22A14A82600686B5A /* MainViewController.swift in Sources */,
 				3B28F7772A161A6E000974F0 /* BookListDTO.swift in Sources */,
+				3BCE1FBA2A1C8D6E002BA6D1 /* RouterType.swift in Sources */,
 				3BCE1FB72A1C8C88002BA6D1 /* AuthorType.swift in Sources */,
 				3B28F76B2A15BF5A000974F0 /* ShelfViewController.swift in Sources */,
 				3B28F7732A161A00000974F0 /* BookDTO.swift in Sources */,
