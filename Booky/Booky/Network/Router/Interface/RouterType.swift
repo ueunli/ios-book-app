@@ -22,15 +22,15 @@ protocol RouterType {
 
 extension RouterType {
     
-    static var defaultComponents: URLComponents {
+    static private var defaultComponents: URLComponents {
         URLComponents()
     }
     
-    var urlComponents: URLComponents {
+    private var urlComponents: URLComponents {
         var components = Self.defaultComponents
         components.scheme = scheme
         components.host = host
-        components.path = (staticPath + optionPath).joined(separator: "/")
+        components.path = "/" + (staticPath + optionPath).joined(separator: "/")
         components.queryItems = staticQuery.map { URLQueryItem(name: $0.0, value: "\($0.1)") }
         components.queryItems?.append(contentsOf: optionQuery.map { URLQueryItem(name: $0.0, value: "\($0.1)") })
         return components
