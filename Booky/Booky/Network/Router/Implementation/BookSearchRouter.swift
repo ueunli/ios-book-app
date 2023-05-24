@@ -19,7 +19,22 @@ struct BookSearchRouter: RouterType {
          "Output": "JS",
          "Cover": "MidBig"]
     }
-    //TODO: - Sort, CategoryId, QueryType 사용자 정의
-    var optionQuery: [String: Any] = ["QueryType": "Title", "Query": ""]
+
+    var optionQuery: [String: Any] = [:]
+    
+}
+
+extension BookSearchRouter {
+    
+    mutating func update(path: String = "ItemSearch.aspx") {
+        updatePath(path)
+    }
+    
+    mutating func update(queryType: String = "Title",
+                         query: String,
+                         sort: String = "Accuracy") {
+        let newQuery = ["QueryType": queryType, "Query": query, "Sort": sort]
+        updateQuery(newQuery)
+    }
     
 }

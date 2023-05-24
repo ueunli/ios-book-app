@@ -8,7 +8,7 @@
 import Foundation
 
 struct BestSellerRouter: RouterType {
-
+    
     var scheme: String { "https" }
     var host: String { "www.aladin.co.kr" }
     var staticPath: [String] { ["ttb", "api"] }
@@ -17,11 +17,24 @@ struct BestSellerRouter: RouterType {
         ["ttbkey": Bundle.main.ttbKey(),
          "version": 20131101,
          "Output": "JS",
-         "Cover": "MidBig",
-         "QueryType": "Bestseller",
-         "SearchTarget": "Book"]
+         "Cover": "MidBig"]
     }
-    //TODO: - CategoryId 사용자 정의, (+ QueryType을 optionQuery로 하여 주목받는 신간 뷰 구현)
-    var optionQuery: [String: Any] = ["CategoryId": 0]
+    
+    var optionQuery: [String: Any] = [:]
+    
+}
 
+extension BestSellerRouter {
+    
+    mutating func update(path: String = "ItemList.aspx") {
+        updatePath(path)
+    }
+    
+    mutating func update(queryType: String = "Bestseller",
+                         searchTarget: String = "Book",
+                         categoryId: Int = 0) {
+        let newQuery: [String: Any] = ["QueryType": queryType, "SearchTarget": searchTarget, "CategoryId": categoryId]
+        updateQuery(newQuery)
+    }
+    
 }

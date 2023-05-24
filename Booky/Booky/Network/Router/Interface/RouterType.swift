@@ -37,7 +37,10 @@ extension RouterType {
     }
     
     mutating func updatePath(_ newPaths: String...) {
-        optionPath.append(contentsOf: newPaths)
+        for newPath in newPaths {
+            guard !optionPath.contains(newPath) else { continue }
+            optionPath.append(newPath)
+        }
     }
     
     mutating func updateQuery(_ newQueries: [String: Any]) {

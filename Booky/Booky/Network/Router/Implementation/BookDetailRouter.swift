@@ -8,7 +8,7 @@
 import Foundation
 
 struct BookDetailRouter: RouterType {
-
+    
     var scheme: String { "https" }
     var host: String { "www.aladin.co.kr" }
     var staticPath: [String] { ["ttb", "api"] }
@@ -20,7 +20,20 @@ struct BookDetailRouter: RouterType {
          "Cover": "Big",
          "OptResult": "authors,toc,previewImgList"]
     }
-    //TODO: - (+ phraseList, reviewList의 표시 여부를 사용자 정의)
-    var optionQuery: [String: Any] = ["ItemId": ""]
 
+    var optionQuery: [String: Any] = [:]
+    
+}
+
+extension BookDetailRouter {
+    
+    mutating func update(path: String = "ItemLookUp.aspx") {
+        updatePath(path)
+    }
+    
+    mutating func update(itemId: String) {
+        let newQuery = ["ItemId": itemId]
+        updateQuery(newQuery)
+    }
+    
 }
