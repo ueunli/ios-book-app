@@ -15,7 +15,7 @@ struct BookDTO: Codable {
     let publishingDate: String
     let description: String
     let isbn: String
-    let isbn13: String
+    let isbn13: String?
     let stockStatus: StockStatus
     let coverLink: String
     let categoryId: Int
