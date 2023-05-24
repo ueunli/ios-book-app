@@ -13,7 +13,7 @@ struct BookDetail {
     let publisher: String
     let publishingDate: String
     let coverLink: String
-    let categoryName: String
+    let category: BookCategory
     let description: String
     let authorDescription: [Author]?
     let previewImageLinks: [String]?
@@ -26,7 +26,7 @@ struct BookDetail {
         self.publisher = dto.publisher
         self.publishingDate = dto.publishingDate
         self.coverLink = dto.coverLink
-        self.categoryName = dto.categoryName
+        self.category = BookCategory(id: dto.categoryId)
         self.description = dto.description
         self.authorDescription = dto.detail.authors?.map {
                 Author(profile: "\($0.name) (\($0.type))", description: $0.information)

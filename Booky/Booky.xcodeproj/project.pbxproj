@@ -42,6 +42,7 @@
 		3BCE1FD92A1E45CA002BA6D1 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FD82A1E45CA002BA6D1 /* CAGradientLayer+.swift */; };
 		3BCE1FDB2A1E45DA002BA6D1 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FDA2A1E45DA002BA6D1 /* UIColor+.swift */; };
 		3BCE1FDD2A1E45E2002BA6D1 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FDC2A1E45E2002BA6D1 /* UIImage+.swift */; };
+		3BCE1FDF2A1E59CF002BA6D1 /* BookCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FDE2A1E59CF002BA6D1 /* BookCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		3BCE1FD82A1E45CA002BA6D1 /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
 		3BCE1FDA2A1E45DA002BA6D1 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		3BCE1FDC2A1E45E2002BA6D1 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		3BCE1FDE2A1E59CF002BA6D1 /* BookCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				3BCE1FCA2A1DDD4F002BA6D1 /* BookDetail.swift */,
 				3BCE1FCE2A1DE191002BA6D1 /* Author.swift */,
 				3BCE1FD02A1DE5A3002BA6D1 /* UserBookDetail.swift */,
+				3BCE1FDE2A1E59CF002BA6D1 /* BookCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				3BCE1FDD2A1E45E2002BA6D1 /* UIImage+.swift in Sources */,
 				3BCE1FBA2A1C8D6E002BA6D1 /* RouterType.swift in Sources */,
 				3BCE1FCB2A1DDD4F002BA6D1 /* BookDetail.swift in Sources */,
+				3BCE1FDF2A1E59CF002BA6D1 /* BookCategory.swift in Sources */,
 				3BCE1FBF2A1C97F7002BA6D1 /* BookSearchRouter.swift in Sources */,
 				3BCE1FC72A1CEB77002BA6D1 /* Bundle+.swift in Sources */,
 				3BCE1FD12A1DE5A3002BA6D1 /* UserBookDetail.swift in Sources */,
