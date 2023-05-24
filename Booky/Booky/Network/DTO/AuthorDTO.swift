@@ -10,12 +10,12 @@ import Foundation
 struct AuthorDTO: Codable {
     
     let name: String
-    let type: AuthorType
-    let information: String
+    let type: String
+    let information: String?
     
     enum CodingKeys: String, CodingKey {
         case name = "authorName"
-        case type = "authorTypeDesc"
+        case type = "authorType"
         case information = "authorInfo"
     }
     
