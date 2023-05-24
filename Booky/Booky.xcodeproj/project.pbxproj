@@ -35,6 +35,7 @@
 		3BCE1FC52A1CB4F6002BA6D1 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC42A1CB4F6002BA6D1 /* Secrets.xcconfig */; };
 		3BCE1FC72A1CEB77002BA6D1 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */; };
 		3BCE1FC92A1DD983002BA6D1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC82A1DD983002BA6D1 /* Book.swift */; };
+		3BCE1FCF2A1DE191002BA6D1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FCE2A1DE191002BA6D1 /* Author.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		3BCE1FC42A1CB4F6002BA6D1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		3BCE1FC82A1DD983002BA6D1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		3BCE1FCE2A1DE191002BA6D1 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				3B28F7782A161A9D000974F0 /* StockStatus.swift */,
 				3B28F77A2A161AB6000974F0 /* NoteType.swift */,
 				3BCE1FC82A1DD983002BA6D1 /* Book.swift */,
+				3BCE1FCE2A1DE191002BA6D1 /* Author.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				3B28F76B2A15BF5A000974F0 /* ShelfViewController.swift in Sources */,
 				3B28F7732A161A00000974F0 /* BookDTO.swift in Sources */,
 				3BCE1FB32A1C8A4C002BA6D1 /* AuthorDTO.swift in Sources */,
+				3BCE1FCF2A1DE191002BA6D1 /* Author.swift in Sources */,
 				3B2D73DE2A14A82600686B5A /* AppDelegate.swift in Sources */,
 				3B28F7752A161A21000974F0 /* BookDetailDTO.swift in Sources */,
 				3BCE1FB52A1C8B44002BA6D1 /* SeriesDTO.swift in Sources */,
