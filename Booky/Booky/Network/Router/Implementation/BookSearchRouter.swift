@@ -14,7 +14,7 @@ struct BookSearchRouter: RouterType {
     var staticPath: [String] { ["ttb", "api"] }
     var optionPath: [String] = ["ItemSearch.aspx"]
     var staticQuery: [String: Any] {
-        ["ttbkey": "",
+        ["ttbkey": Bundle.main.ttbKey(),
          "version": 20131101,
          "Output": "JS",
          "Cover": "MidBig"]

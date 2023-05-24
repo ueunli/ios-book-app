@@ -34,6 +34,7 @@
 		3BCE1FC12A1C9804002BA6D1 /* BestSellerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC02A1C9804002BA6D1 /* BestSellerRouter.swift */; };
 		3BCE1FC32A1C980C002BA6D1 /* BookDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC22A1C980C002BA6D1 /* BookDetailRouter.swift */; };
 		3BCE1FC52A1CB4F6002BA6D1 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC42A1CB4F6002BA6D1 /* Secrets.xcconfig */; };
+		3BCE1FC72A1CEB77002BA6D1 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		3BCE1FC02A1C9804002BA6D1 /* BestSellerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerRouter.swift; sourceTree = "<group>"; };
 		3BCE1FC22A1C980C002BA6D1 /* BookDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailRouter.swift; sourceTree = "<group>"; };
 		3BCE1FC42A1CB4F6002BA6D1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		3B28F7802A16255C000974F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				3BCE1FBA2A1C8D6E002BA6D1 /* RouterType.swift in Sources */,
 				3BCE1FBF2A1C97F7002BA6D1 /* BookSearchRouter.swift in Sources */,
 				3BCE1FB72A1C8C88002BA6D1 /* AuthorType.swift in Sources */,
+				3BCE1FC72A1CEB77002BA6D1 /* Bundle+.swift in Sources */,
 				3B28F76B2A15BF5A000974F0 /* ShelfViewController.swift in Sources */,
 				3B28F7732A161A00000974F0 /* BookDTO.swift in Sources */,
 				3BCE1FB32A1C8A4C002BA6D1 /* AuthorDTO.swift in Sources */,
