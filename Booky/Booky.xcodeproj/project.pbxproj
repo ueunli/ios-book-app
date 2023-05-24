@@ -41,6 +41,7 @@
 		3BCE1FD52A1DFA46002BA6D1 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3BCE1FD42A1DFA46002BA6D1 /* Secrets.xcconfig */; };
 		3BCE1FD92A1E45CA002BA6D1 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FD82A1E45CA002BA6D1 /* CAGradientLayer+.swift */; };
 		3BCE1FDB2A1E45DA002BA6D1 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FDA2A1E45DA002BA6D1 /* UIColor+.swift */; };
+		3BCE1FDD2A1E45E2002BA6D1 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FDC2A1E45E2002BA6D1 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		3BCE1FD42A1DFA46002BA6D1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		3BCE1FD82A1E45CA002BA6D1 /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
 		3BCE1FDA2A1E45DA002BA6D1 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		3BCE1FDC2A1E45E2002BA6D1 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */,
 				3BCE1FD82A1E45CA002BA6D1 /* CAGradientLayer+.swift */,
 				3BCE1FDA2A1E45DA002BA6D1 /* UIColor+.swift */,
+				3BCE1FDC2A1E45E2002BA6D1 /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				3BCE1FD32A1DE633002BA6D1 /* Note.swift in Sources */,
 				3BCE1FC32A1C980C002BA6D1 /* BookDetailRouter.swift in Sources */,
 				3B28F7772A161A6E000974F0 /* BookListDTO.swift in Sources */,
+				3BCE1FDD2A1E45E2002BA6D1 /* UIImage+.swift in Sources */,
 				3BCE1FBA2A1C8D6E002BA6D1 /* RouterType.swift in Sources */,
 				3BCE1FCB2A1DDD4F002BA6D1 /* BookDetail.swift in Sources */,
 				3BCE1FBF2A1C97F7002BA6D1 /* BookSearchRouter.swift in Sources */,
