@@ -35,6 +35,7 @@
 		3BCE1FC52A1CB4F6002BA6D1 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC42A1CB4F6002BA6D1 /* Secrets.xcconfig */; };
 		3BCE1FC72A1CEB77002BA6D1 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */; };
 		3BCE1FC92A1DD983002BA6D1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FC82A1DD983002BA6D1 /* Book.swift */; };
+		3BCE1FCB2A1DDD4F002BA6D1 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FCA2A1DDD4F002BA6D1 /* BookDetail.swift */; };
 		3BCE1FCF2A1DE191002BA6D1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE1FCE2A1DE191002BA6D1 /* Author.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		3BCE1FC42A1CB4F6002BA6D1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		3BCE1FC62A1CEB77002BA6D1 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		3BCE1FC82A1DD983002BA6D1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		3BCE1FCA2A1DDD4F002BA6D1 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		3BCE1FCE2A1DE191002BA6D1 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 				3B28F7782A161A9D000974F0 /* StockStatus.swift */,
 				3B28F77A2A161AB6000974F0 /* NoteType.swift */,
 				3BCE1FC82A1DD983002BA6D1 /* Book.swift */,
+				3BCE1FCA2A1DDD4F002BA6D1 /* BookDetail.swift */,
 				3BCE1FCE2A1DE191002BA6D1 /* Author.swift */,
 			);
 			path = Models;
@@ -426,6 +429,7 @@
 				3BCE1FC32A1C980C002BA6D1 /* BookDetailRouter.swift in Sources */,
 				3B28F7772A161A6E000974F0 /* BookListDTO.swift in Sources */,
 				3BCE1FBA2A1C8D6E002BA6D1 /* RouterType.swift in Sources */,
+				3BCE1FCB2A1DDD4F002BA6D1 /* BookDetail.swift in Sources */,
 				3BCE1FBF2A1C97F7002BA6D1 /* BookSearchRouter.swift in Sources */,
 				3BCE1FC72A1CEB77002BA6D1 /* Bundle+.swift in Sources */,
 				3BCE1FC92A1DD983002BA6D1 /* Book.swift in Sources */,
