@@ -18,16 +18,16 @@ final class MainViewController: UITabBarController {
         viewControllers = [
             navigationController(for: DashboardViewController(),
                                  title: "홈",
-                                 image: UIImage(systemName: "house")!),
+                                 image: UIImage.homeIcon),
             navigationController(for: FavoritesViewController(),
                                  title: "즐겨찾기",
-                                 image: UIImage(systemName: "star")!)
+                                 image: UIImage.starIcon)
         ]
     }
     
     private func navigationController(for rootViewController: UIViewController,
                                       title: String,
-                                      image: UIImage) -> UINavigationController {
+                                      image: UIImage?) -> UINavigationController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
