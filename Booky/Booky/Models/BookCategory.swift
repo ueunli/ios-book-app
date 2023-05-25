@@ -7,7 +7,9 @@
 
 enum BookCategory: Int, CaseIterable {
     
+    case all = 0
     case literature = 1
+    case unClassified = 10
     case history = 74
     case economicsManagement = 170
     case selfDevelopment = 336
@@ -40,8 +42,18 @@ enum BookCategory: Int, CaseIterable {
     case genreNovels = 112011
     case biggerFontBooks = 184996
     
+    init(id: Int) {
+        if let category = BookCategory(rawValue: id) {
+            self = category
+        } else {
+            self = .unClassified
+        }
+    }
+    
     var name: String {
         switch self {
+        case .all:
+            return "전체"
         case .literature:
             return "소설/시/희곡"
         case .history:
@@ -106,6 +118,10 @@ enum BookCategory: Int, CaseIterable {
             return "장르소설"
         case .biggerFontBooks:
             return "큰글자책"
+        case .unClassified:
+            return "미분류"
+        @unknown default:
+            return "기타"
         }
     }
     
