@@ -13,5 +13,6 @@ extension UIImage {
     static let starsIcon = UIImage(named: "stars")
     static let homeIcon = UIImage(systemName: "house")
     static let starIcon = UIImage(systemName: "star")
+    static let heartIcon = UIImage(systemName: "heart.fill")
     
 }

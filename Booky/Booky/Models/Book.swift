@@ -7,11 +7,13 @@
 
 struct Book {
     
+    let id: String
     let title: String
     let author: String
     let coverLink: String
     
     init(from dto: BookDTO) {
+        self.id = dto.isbn13 ?? dto.isbn
         self.title = dto.title
         self.author = dto.author.prefix(while: { $0 != "(" }).trimmingCharacters(in: .whitespaces)
         self.coverLink = dto.coverLink

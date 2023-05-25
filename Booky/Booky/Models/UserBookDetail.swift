@@ -16,8 +16,8 @@ struct UserBookDetail {
     private(set) var isLiked: Bool = false
     private(set) var totalPages: Int
     private(set) var readPages: Int = 0
-    var process: Double {
-        Double(readPages) / Double(totalPages)
+    var process: Float {
+        Float(readPages) / Float(totalPages)
     }
     
     //MARK: - Life Cycle
