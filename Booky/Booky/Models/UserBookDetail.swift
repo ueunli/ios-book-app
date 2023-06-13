@@ -23,7 +23,7 @@ struct UserBookDetail {
     //MARK: - Life Cycle
     
     init(for book: BookDetail) {
-        self.id = book.id
+        self.id = book.id.isbn
         self.totalPages = book.pageCount
         UserDefaults.standard.register(defaults: [id: UserBookDetail.self])
     }

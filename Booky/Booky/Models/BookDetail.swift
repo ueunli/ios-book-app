@@ -5,9 +5,11 @@
 //  Created by J.E on 2023/05/24.
 //
 
-struct BookDetail {
+import Foundation
+
+struct BookDetail: Codable {
     
-    let id: String
+    let id: BookIdentifier
     let title: String
     let author: String
     let publisher: String
@@ -18,9 +20,11 @@ struct BookDetail {
     let authorDescription: [Author]?
     let previewImageLinks: [String]?
     let pageCount: Int
+    let tableOfContents: String?
     
     init(from dto: BookDTO) {
-        self.id = dto.isbn13 ?? dto.isbn
+        let isbn = dto.isbn13 ?? dto.isbn
+        self.id = BookIdentifier(isbn: isbn)
         self.title = dto.title
         self.author = dto.author
         self.publisher = dto.publisher
@@ -33,6 +37,7 @@ struct BookDetail {
         }
         self.previewImageLinks = dto.detail.previewImageLinks
         self.pageCount = dto.detail.pages ?? 1
+        self.tableOfContents = dto.detail.tableOfContents
     }
     
 }
