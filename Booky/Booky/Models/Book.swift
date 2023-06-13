@@ -20,3 +20,11 @@ struct Book {
     }
     
 }
+
+extension Book: Hashable {
+    
+    static func == (lhs: Book, rhs: Book) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+}
