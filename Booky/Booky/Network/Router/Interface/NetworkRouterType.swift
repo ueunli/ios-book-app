@@ -1,5 +1,5 @@
 //
-//  RouterType.swift
+//  NetworkRouterType.swift
 //  Booky
 //
 //  Created by J.E on 2023/05/23.
@@ -9,7 +9,7 @@ import Alamofire
 import Kingfisher
 import Foundation
 
-protocol RouterType {
+protocol NetworkRouterType {
     
     var scheme: String { get }
     var host: String { get }
@@ -20,7 +20,7 @@ protocol RouterType {
     
 }
 
-extension RouterType {
+extension NetworkRouterType {
     
     static private var defaultComponents: URLComponents {
         URLComponents()
@@ -45,26 +45,20 @@ extension RouterType {
     
     mutating func updateQuery(_ newQueries: [String: Any]) {
         newQueries.forEach {
-            optionQuery.updateValue($0.0, forKey: "\($0.1)")
+            optionQuery.updateValue($0.1, forKey: $0.0)
         }
     }
     
 }
 
-extension RouterType {
+extension NetworkRouterType {
     
-    func fetchBookList(_ completion: @escaping (BookListDTO?) -> Void) {
+    func fetchBooks(_ completion: @escaping (BookListDTO?) -> Void) {
         let request = AF.request(urlComponents)
         request.responseDecodable(of: BookListDTO.self) { response in
             let data = response.value
             completion(data)
         }
-    }
-    
-    func fetchBookCover(from link: String, _ completion: @escaping (KFImage) -> Void) {
-        let url = URL(string: link)
-        let kfImage = KFImage(url)
-        completion(kfImage)
     }
     
 }

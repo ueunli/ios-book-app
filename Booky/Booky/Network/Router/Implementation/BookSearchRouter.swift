@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookSearchRouter: RouterType {
+struct BookSearchRouter: NetworkRouterType {
     
     var scheme: String { "https" }
     var host: String { "www.aladin.co.kr" }
@@ -26,14 +26,18 @@ struct BookSearchRouter: RouterType {
 
 extension BookSearchRouter {
     
-    mutating func update(path: String = "ItemSearch.aspx") {
+    mutating func update(path: String) {
         updatePath(path)
     }
     
     mutating func update(queryType: String = "Title",
                          query: String,
+                         category: BookCategory = .all,
                          sort: String = "Accuracy") {
-        let newQuery = ["QueryType": queryType, "Query": query, "Sort": sort]
+        let newQuery: [String: Any] = ["QueryType": queryType,
+                                       "Query": query,
+                                       "CategoryId": category.rawValue,
+                                       "Sort": sort]
         updateQuery(newQuery)
     }
     

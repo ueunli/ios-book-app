@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookDetailRouter: RouterType {
+struct BookDetailRouter: NetworkRouterType {
     
     var scheme: String { "https" }
     var host: String { "www.aladin.co.kr" }
@@ -27,7 +27,7 @@ struct BookDetailRouter: RouterType {
 
 extension BookDetailRouter {
     
-    mutating func update(path: String = "ItemLookUp.aspx") {
+    mutating func update(path: String) {
         updatePath(path)
     }
     
