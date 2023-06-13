@@ -32,7 +32,8 @@ extension UIColor {
         static let light2 = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00)
         static let medium1 = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1.00)
         static let medium2 = UIColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 1.00)
-        static let medium3 = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)
+        static let medium3 = UIColor(red: 0.87, green: 0.89, blue: 0.90, alpha: 1.00)
+        static let medium4 = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)
     }
     
 }
