@@ -1,5 +1,5 @@
 //
-//  BookCell.swift
+//  BestSellerBookCell.swift
 //  Booky
 //
 //  Created by J.E on 2023/06/13.
@@ -9,21 +9,16 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class BookCell: UICollectionViewCell {
+final class BestSellerBookCell: BookCell {
     
     //MARK: - Property
     
-    lazy var titleLabel: UILabel = {
+    lazy var authorLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: 10)
         label.textAlignment = .center
+        label.textColor = .Black.medium
         return label
-    }()
-    
-    lazy var coverView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
-        return view
     }()
     
     //MARK: - LifeCycle
@@ -44,32 +39,32 @@ class BookCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        titleLabel.text = nil
-        coverView.image = nil
+        authorLabel.text = nil
     }
     
-    func update(book: Book) {
-        titleLabel.text = book.title
-        KF.fetchAndRenderImage(from: book.coverLink,
-                               as: .small,
-                               to: coverView)
+    override func update(book: Book) {
+        super.update(book: book)
+        authorLabel.text = book.author
     }
     
-    func configureViewHierarchy() {
-        self.addSubview(coverView)
-        self.addSubview(titleLabel)
+    override func configureViewHierarchy() {
+        super.configureViewHierarchy()
+        addSubview(authorLabel)
     }
     
-    func configureAutoLayout() {
+    override func configureAutoLayout() {
         coverView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(titleLabel.snp.top).offset(-4)
         }
         
-        titleLabel.invalidateIntrinsicContentSize()
         titleLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(authorLabel.snp.top).offset(-2)
+        }
+        
+        authorLabel.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalToSuperview()
-            make.top.equalTo(coverView.snp.bottom).offset(10)
-            make.height.equalTo(30)
         }
     }
     
