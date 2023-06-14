@@ -7,24 +7,24 @@
 
 import Foundation
 
-struct BookDetail: Codable, Hashable {
-    
-    let id: BookIdentifier
+struct BookDetail: Codable {
+
     let title: String
     let author: String
+    let coverLink: String
+
     let publisher: String
     let publishingDate: String
-    let coverLink: String
+
     let category: BookCategory
     let description: String
     let authorDescription: [Author]?
-    let previewImageLinks: [String]?
+
     let pageCount: Int
+    let previewImageLinks: [String]?
     let tableOfContents: String?
     
     init(from dto: BookDTO) {
-        let isbn = dto.isbn13 ?? dto.isbn
-        self.id = BookIdentifier(isbn: isbn)
         self.title = dto.title
         self.author = dto.author
         self.publisher = dto.publisher
@@ -38,18 +38,6 @@ struct BookDetail: Codable, Hashable {
         self.previewImageLinks = dto.detail.previewImageLinks
         self.pageCount = dto.detail.pages ?? 1
         self.tableOfContents = dto.detail.tableOfContents
-    }
-    
-}
-
-extension BookDetail: UserBookDetailDelegate {
-    
-    func save() {
-        UserDefaultsManager.updateBook(self)
-    }
-    
-    func remove() {
-        UserDefaultsManager.removeBook(self)
     }
     
 }

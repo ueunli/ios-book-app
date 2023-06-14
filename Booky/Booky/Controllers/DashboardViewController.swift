@@ -15,7 +15,7 @@ final class DashboardViewController: UIViewController {
     private var searchRouter = BookSearchRouter()
     
     private var bookListRouter = BestSellerRouter()
-    private var books = [Book]()
+    private var books = [UserBook]()
     
     private var bookSearchRouter = BookSearchRouter()
     private var categories = [BookCategory]()
@@ -198,7 +198,7 @@ final class DashboardViewController: UIViewController {
     private func updateBestSeller(for category: BookCategory) {
         bookListRouter.update(category: category)
         bookListRouter.fetchBooks { dto in
-            self.books = (dto?.books ?? []).map { Book(from: $0) }
+            self.books = (dto?.books ?? []).map { UserBook(from: $0) }
             self.applyBookDataSource()
         }
     }
@@ -209,7 +209,7 @@ final class DashboardViewController: UIViewController {
     }
     
     private func applyBookDataSource() {
-        let items = books.map { BookyDataSource.book($0) }
+        let items = books.map { BookyDataSource.book($0.book) }
         snapshot.appendItems(items, toSection: .bestSeller)
         dataSource.apply(snapshot)
     }

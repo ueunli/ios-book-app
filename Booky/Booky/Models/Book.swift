@@ -7,16 +7,13 @@
 
 import Foundation
 
-struct Book: Hashable {
+struct Book: Codable, Hashable {
     
-    let id: BookIdentifier
     let title: String
     let author: String
     let coverLink: String
     
     init(from dto: BookDTO) {
-        let isbn = dto.isbn13 ?? dto.isbn
-        self.id = BookIdentifier(isbn: isbn)
         self.title = dto.title
         self.author = dto.author.prefix(while: { $0 != "(" }).trimmingCharacters(in: .whitespaces)
         self.coverLink = dto.coverLink

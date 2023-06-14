@@ -127,7 +127,7 @@ enum BookCategory: Int, Codable {
     
 }
 
-extension BookCategory: CaseIterable, Hashable {
+extension BookCategory: CaseIterable {
     
     static func == (lhs: BookCategory, rhs: BookCategory) -> Bool {
         lhs.rawValue == rhs.rawValue
