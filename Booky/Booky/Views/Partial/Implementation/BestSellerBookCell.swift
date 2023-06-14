@@ -46,8 +46,8 @@ final class BestSellerBookCell: BookCell {
         authorLabel.text = book.author
     }
     
-    override func configure(alignment: NSTextAlignment, titleLines: Int? = nil, shadow: Bool = false) {
-        super.configure(alignment: alignment, titleLines: titleLines, shadow: shadow)
+    override func configure(alignment: NSTextAlignment, titleLines: Int? = nil) {
+        super.configure(alignment: alignment, titleLines: titleLines)
         authorLabel.textAlignment = alignment
     }
     

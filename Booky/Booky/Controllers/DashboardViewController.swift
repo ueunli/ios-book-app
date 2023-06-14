@@ -44,8 +44,8 @@ final class DashboardViewController: UIViewController {
         configureSearchBar()
         configureCollectionView()
         configureDataSource()
-        animateInitialView()
         configureBackgroundViewDesign()
+        animateInitialView()
         updateCategories()
         updateBestSeller(for: .all)
     }
@@ -105,8 +105,8 @@ final class DashboardViewController: UIViewController {
         searchBar.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
-            make.width.equalTo(collectionView)
             make.top.equalToSuperview().offset(70)
+            make.directionalHorizontalEdges.equalToSuperview().inset(20)
         }
     }
     
@@ -144,9 +144,9 @@ final class DashboardViewController: UIViewController {
     private func configureCollectionViewAutoLayout() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.directionalHorizontalEdges.equalToSuperview().inset(20)
             make.top.equalTo(searchBar.snp.bottom).offset(80)
             make.bottom.equalToSuperview().offset(-40)
+            make.directionalHorizontalEdges.equalToSuperview().inset(20)
         }
     }
     
@@ -162,8 +162,8 @@ final class DashboardViewController: UIViewController {
     //MARK: - Configuring Method (for dataSource)
     
     private func configureDataSource() {
-        configureCollectionViewHeaderRegistration()
         configureCollectionViewCellRegistration()
+        configureCollectionViewHeaderRegistration()
     }
     
     private func configureCollectionViewHeaderRegistration() {

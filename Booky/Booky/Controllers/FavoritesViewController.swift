@@ -81,7 +81,7 @@ final class FavoritesViewController: UIViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<BookCell, Book> { cell, indexPath, item in
             cell.update(book: item)
-            cell.configure(alignment: .left, titleLines: 2, shadow: true)
+            cell.configure(alignment: .left, titleLines: 2)
         }
         
         dataSource = UICollectionViewDiffableDataSource<BookySection, BookyDataSource>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in

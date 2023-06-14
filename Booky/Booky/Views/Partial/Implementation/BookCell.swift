@@ -54,15 +54,11 @@ class BookCell: UICollectionViewCell {
                                to: coverView)
     }
     
-    func configure(alignment: NSTextAlignment, titleLines: Int? = nil, shadow: Bool = false) {
+    func configure(alignment: NSTextAlignment, titleLines: Int? = nil) {
         titleLabel.textAlignment = alignment
         if let titleLines {
             titleLabel.numberOfLines = titleLines
         }
-        guard shadow else { return }
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = frame.size
-        layer.shadowColor = UIColor.Black.medium.cgColor
     }
     
     func configureViewHierarchy() {
