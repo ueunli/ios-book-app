@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookDetail: Codable {
+struct BookDetail: Codable, Hashable {
     
     let id: BookIdentifier
     let title: String
@@ -33,11 +33,23 @@ struct BookDetail: Codable {
         self.category = BookCategory(id: dto.categoryId)
         self.description = dto.description
         self.authorDescription = dto.detail.authors?.map {
-                Author(profile: "\($0.name) (\($0.type))", description: $0.information)
+            Author(profile: "\($0.name) (\($0.type))", description: $0.information)
         }
         self.previewImageLinks = dto.detail.previewImageLinks
         self.pageCount = dto.detail.pages ?? 1
         self.tableOfContents = dto.detail.tableOfContents
+    }
+    
+}
+
+extension BookDetail: UserBookDetailDelegate {
+    
+    func save() {
+        UserDefaultsManager.updateBook(self)
+    }
+    
+    func remove() {
+        UserDefaultsManager.removeBook(self)
     }
     
 }

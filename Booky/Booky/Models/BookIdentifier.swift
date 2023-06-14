@@ -13,3 +13,15 @@ struct BookIdentifier: Codable {
     let isbn: String
     
 }
+
+extension BookIdentifier: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(isbn)
+    }
+    
+    static func == (lhs: BookIdentifier, rhs: BookIdentifier) -> Bool {
+        lhs.isbn == rhs.isbn
+    }
+    
+}

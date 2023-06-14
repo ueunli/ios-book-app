@@ -230,7 +230,7 @@ extension DashboardViewController: UICollectionViewDelegate {
             moveToSearchView(for: category)
         } else {
             let book = books[indexPath.row % books.count]
-            moveToDetailView(for: book.id)
+            moveToDetailView(for: book.id.isbn)
         }
     }
     
