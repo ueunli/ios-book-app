@@ -41,13 +41,11 @@ final class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(collectionView)
         configureSearchBar()
         configureCollectionView()
         configureDataSource()
         animateInitialView()
         configureBackgroundViewDesign()
-        collectionView.delegate = self
         updateCategories()
         updateBestSeller(for: .all)
     }
@@ -93,15 +91,16 @@ final class DashboardViewController: UIViewController {
     
     private func configureSearchBar() {
         configureSearchBarDesign()
-        configureSearchBarAutuLayout()
+        configureSearchBarAutoLayout()
 
-        searchBar.delegate = self
         searchBar.autocorrectionType = .no
         searchBar.autocapitalizationType = .none
         searchBar.enablesReturnKeyAutomatically = true
+        
+        searchBar.delegate = self
     }
     
-    private func configureSearchBarAutuLayout() {
+    private func configureSearchBarAutoLayout() {
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -138,9 +137,12 @@ final class DashboardViewController: UIViewController {
     private func configureCollectionView() {
         configureCollectionViewDesign()
         configureCollectionViewAutoLayout()
+        
+        collectionView.delegate = self
     }
     
     private func configureCollectionViewAutoLayout() {
+        view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.directionalHorizontalEdges.equalToSuperview().inset(20)
             make.top.equalTo(searchBar.snp.bottom).offset(80)
@@ -167,6 +169,7 @@ final class DashboardViewController: UIViewController {
     private func configureCollectionViewHeaderRegistration() {
         let headerRegistration = UICollectionView.SupplementaryRegistration<HeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { _, _, _ in
         }
+        
         dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
             let header = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
             header.section = BookySection.allCases[indexPath.section]
@@ -177,10 +180,12 @@ final class DashboardViewController: UIViewController {
     private func configureCollectionViewCellRegistration() {
         let bestSellerBookCellRegistration = UICollectionView.CellRegistration<BestSellerBookCell, Book> { cell, indexPath, item in
             cell.update(book: item)
+            cell.configure(alignment: .center)
         }
         let bookCellRegistration = UICollectionView.CellRegistration<CategoryCell, BookCategory> { cell, indexPath, item in
             cell.update(category: item)
         }
+        
         dataSource = UICollectionViewDiffableDataSource<BookySection, BookyDataSource>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .book(let book):
@@ -230,17 +235,19 @@ extension DashboardViewController: UICollectionViewDelegate {
             moveToSearchView(for: category)
         } else {
             let book = books[indexPath.row % books.count]
-            moveToDetailView(for: book.id.isbn)
+            moveToDetailView(for: book)
         }
     }
     
     private func moveToSearchView(for category: BookCategory) {
         let viewController = SearchViewController()
+        viewController.searchRange = category
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func moveToDetailView(for bookId: String) {
+    private func moveToDetailView(for book: UserBook) {
         let viewController = BookDetailViewController()
+        viewController.book = book
         navigationController?.pushViewController(viewController, animated: true)
     }
     

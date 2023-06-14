@@ -16,7 +16,6 @@ class BookCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
-        label.textAlignment = .center
         return label
     }()
     
@@ -53,6 +52,17 @@ class BookCell: UICollectionViewCell {
         KF.fetchAndRenderImage(from: book.coverLink,
                                as: .small,
                                to: coverView)
+    }
+    
+    func configure(alignment: NSTextAlignment, titleLines: Int? = nil, shadow: Bool = false) {
+        titleLabel.textAlignment = alignment
+        if let titleLines {
+            titleLabel.numberOfLines = titleLines
+        }
+        guard shadow else { return }
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = frame.size
+        layer.shadowColor = UIColor.Black.medium.cgColor
     }
     
     func configureViewHierarchy() {

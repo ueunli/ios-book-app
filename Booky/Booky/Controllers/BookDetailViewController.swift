@@ -9,4 +9,6 @@ import UIKit
 
 final class BookDetailViewController: UIViewController {
     
+    var book: UserBook?
+    
 }

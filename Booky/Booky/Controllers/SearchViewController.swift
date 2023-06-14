@@ -9,6 +9,8 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
+    var searchRange: BookCategory = .all
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

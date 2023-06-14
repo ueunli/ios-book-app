@@ -16,7 +16,6 @@ final class BestSellerBookCell: BookCell {
     lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 10)
-        label.textAlignment = .center
         label.textColor = .Black.medium
         return label
     }()
@@ -45,6 +44,11 @@ final class BestSellerBookCell: BookCell {
     override func update(book: Book) {
         super.update(book: book)
         authorLabel.text = book.author
+    }
+    
+    override func configure(alignment: NSTextAlignment, titleLines: Int? = nil, shadow: Bool = false) {
+        super.configure(alignment: alignment, titleLines: titleLines, shadow: shadow)
+        authorLabel.textAlignment = alignment
     }
     
     override func configureViewHierarchy() {
