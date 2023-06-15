@@ -7,23 +7,19 @@
 
 import Foundation
 
-struct UserBook: Codable {
+class UserBook: Codable, UserBookDetailDelegate {
     
     let id: BookIdentifier
     var book: Book
     var bookDetail: BookDetail
-    var userDetail: UserBookDetail
-    var isBookmarked: Bool {
-        get {
-            userDetail.isBookmarked
-        }
-        set {
-            switch newValue {
-            case true: save()
-            case false: remove()
-            }
-        }
-    }
+    var userDetail: UserBookDetail //{
+//        didSet {
+//            switch userDetail.isBookmarked {
+//            case true: save()
+//            case false: remove()
+//            }
+//        }
+//    }
     
     init(from dto: BookDTO) {
         let isbn = dto.isbn13 ?? dto.isbn
@@ -33,11 +29,11 @@ struct UserBook: Codable {
         self.userDetail = UserBookDetail(for: bookDetail)
     }
     
-    private func save() {
+    func save() {
         UserDefaultsManager.updateBook(self)
     }
     
-    private func remove() {
+    func remove() {
         UserDefaultsManager.removeBook(self)
     }
     

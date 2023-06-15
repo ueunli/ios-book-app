@@ -7,14 +7,29 @@
 
 import Foundation
 
+protocol UserBookDetailDelegate {
+    
+    func save()
+    func remove()
+    
+}
+
 struct UserBookDetail: Codable {
     
     private(set) var notes: [Note] = []
-    private(set) var isLiked: Bool = false
-    private(set) var process: ReadingProcess
-    var isBookmarked: Bool {
-        !notes.isEmpty || isLiked || !process.percentage.isZero
+    private(set) var isLiked: Bool = false {
+        didSet {
+            switch isLiked {
+            case true: delegate?.save()
+            case false: delegate?.remove()
+            }
+        }
     }
+    private(set) var process: ReadingProcess
+//    var isBookmarked: Bool {
+//        !notes.isEmpty || isLiked || !process.percentage.isZero
+//    }
+    var delegate: UserBookDetailDelegate?
     
     init(for book: BookDetail) {
         self.process = ReadingProcess(totalPages: book.pageCount)
