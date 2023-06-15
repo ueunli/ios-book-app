@@ -55,10 +55,10 @@ final class MainViewController: UITabBarController {
         viewControllers = [
             navigationController(for: DashboardViewController(),
                                  title: "홈",
-                                 image: UIImage.homeIcon),
+                                 image: .homeIcon),
             navigationController(for: FavoritesViewController(),
                                  title: "즐겨찾기",
-                                 image: UIImage.starIcon)
+                                 image: .favoriteIcon)
         ]
     }
     

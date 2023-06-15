@@ -11,7 +11,13 @@ final class FavoritesViewController: UIViewController {
     
     //MARK: - Property
     
-    private var bookList = [UserBook]()
+    private var books = [UserBook]() {
+        didSet {
+            let oldIdentifiers = oldValue.map { BookyDataSource.book($0.book) }
+            snapshot.deleteItems(oldIdentifiers)
+            applyBookDataSource()
+        }
+    }
     
     private var dataSource: UICollectionViewDiffableDataSource<BookySection, BookyDataSource>!
     private var snapshot: NSDiffableDataSourceSnapshot = {
@@ -41,7 +47,7 @@ final class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadLikedBooks()
+        updateBooks()
     }
     
     //MARK: - Configuring Method
@@ -70,12 +76,12 @@ final class FavoritesViewController: UIViewController {
         }
     }
     
-    private func createLayout(sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        BookySection.shelf.section
-    }
-    
     private func configureCollectionViewDesign() {
         collectionView.backgroundColor = .White.pure
+    }
+    
+    private func createLayout(sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
+        BookySection.shelf.section
     }
     
     private func configureDataSource() {
@@ -92,20 +98,21 @@ final class FavoritesViewController: UIViewController {
     }
     
     //MARK: - Updating Method
-
-    private func loadLikedBooks() {
-        bookList = UserDefaultsManager.userBooks()
-    }
     
-    @objc func refreshCollectionView() {
+    @objc
+    private func refreshCollectionView() {
         if collectionView.refreshControl?.isRefreshing ?? false {
             collectionView.refreshControl?.endRefreshing()
         }
-        loadLikedBooks()
+        updateBooks()
     }
     
-    func applyBookDataSource() {
-        let bookItems = bookList.map { BookyDataSource.book($0.book) }
+    private func updateBooks() {
+        books = UserDefaultsManager.userBooks()
+    }
+    
+    private func applyBookDataSource() {
+        let bookItems = books.map { BookyDataSource.book($0.book) }
         snapshot.appendItems(bookItems, toSection: .shelf)
         dataSource.apply(snapshot)
     }
@@ -115,8 +122,8 @@ final class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, performPrimaryActionForItemAt indexPath: IndexPath) {
-        guard bookList.count > 0 else { return }
-        let book = bookList[indexPath.row % bookList.count]
+        guard books.count > 0 else { return }
+        let book = books[indexPath.row % books.count]
         moveToDetailView(for: book)
     }
     

@@ -17,16 +17,21 @@ extension UIImage {
         .applyingSymbolConfiguration(
             .init(pointSize: 25, weight: .medium, scale: .small)
         )
-    static let starIcon = UIImage(systemName: "star")?
+    static let favoriteIcon = UIImage(systemName: "star")?
         .withBaselineOffset(fromBottom: 5)
         .applyingSymbolConfiguration(
             .init(pointSize: 25, weight: .medium, scale: .small)
         )
     
-    static let favoriteStarIcon = UIImage(systemName: "star.fill")?
+    static let emptyStarIcon = UIImage(systemName: "star")?
         .withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
-    static let notFavoriteStarIcon = UIImage(systemName: "star")?
+    static let coloredStarIcon = UIImage(systemName: "star.fill")?
         .withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
+    
+    static let emptyHeartIcon = UIImage(systemName: "heart")?
+        .withTintColor(.Purple.magenta, renderingMode: .alwaysOriginal)
+    static let coloredHeartIcon = UIImage(systemName: "heart.fill")?
+        .withTintColor(.Purple.magenta, renderingMode: .alwaysOriginal)
     
     static let rightChevronArrow = UIImage(systemName: "chevron.forward")?
         .withTintColor(.Black.dark2, renderingMode: .alwaysOriginal)

@@ -203,7 +203,12 @@ final class DashboardViewController: UIViewController {
     private func updateBestSeller(for category: BookCategory) {
         bookListRouter.update(category: category)
         bookListRouter.fetchBooks { dto in
-            self.books = (dto?.books ?? []).map { UserBook(from: $0) }
+            self.books = (dto?.books ?? []).map {
+                guard let book = UserDefaultsManager.userBook(id: $0.isbn13 ?? $0.isbn) else {
+                    return UserBook(from: $0)
+                }
+                return book
+            }
             self.applyBookDataSource()
         }
     }

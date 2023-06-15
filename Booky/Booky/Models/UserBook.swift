@@ -7,18 +7,14 @@
 
 import Foundation
 
-struct UserBook: Codable {
+class UserBook: Codable {
     
     let id: BookIdentifier
-    var book: Book
-    var bookDetail: BookDetail
-    var userDetail: UserBookDetail
-    var isBookmarked: Bool {
-        get {
-            userDetail.isBookmarked
-        }
-        set {
-            switch newValue {
+    let book: Book
+    let bookDetail: BookDetail
+    var userDetail: UserBookDetail {
+        didSet {
+            switch userDetail.isBookmarked {
             case true: save()
             case false: remove()
             }
