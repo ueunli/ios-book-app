@@ -5,9 +5,7 @@
 //  Created by J.E on 2023/05/18.
 //
 
-import Foundation
-
-enum NoteType {
+enum NoteType: Codable {
     
     case quote, memo
     

@@ -7,38 +7,37 @@
 
 import Foundation
 
-struct UserBookDetail {
+struct UserBookDetail: Codable {
     
-    //MARK: - Property
-    
-    private(set) var id: String
     private(set) var notes: [Note] = []
     private(set) var isLiked: Bool = false
-    private(set) var totalPages: Int
-    private(set) var readPages: Int = 0
-    var process: Float {
-        Float(readPages) / Float(totalPages)
+    private(set) var process: ReadingProcess
+    var isBookmarked: Bool {
+        !notes.isEmpty || isLiked || !process.percentage.isZero
     }
-    
-    //MARK: - Life Cycle
     
     init(for book: BookDetail) {
-        self.id = book.id
-        self.totalPages = book.pageCount
-        UserDefaults.standard.register(defaults: [id: UserBookDetail.self])
+        self.process = ReadingProcess(totalPages: book.pageCount)
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case notes, isLiked, process
     }
     
-    //MARK: - Get·Mutating Method
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(isLiked, forKey: .isLiked)
+        try container.encode(process, forKey: .process)
+    }
+    
+    func note(at index: Int) -> Note? {
+        guard index < notes.count else { return nil }
+        return notes[index]
+    }
     
     mutating func toggleHeart() {
         isLiked = !isLiked
-    }
-    
-    func note(at index: Int) throws -> Note {
-        guard index < notes.count else {
-            fatalError("해당 인덱스에는 노트가 존재하지 않습니다.")    //TODO: 유저활동 혹은 인덱스 관련 에러 정의
-        }
-        return notes[index]
     }
     
     mutating func editNote(at index: Int, with newNote: Note) {
@@ -46,18 +45,7 @@ struct UserBookDetail {
     }
     
     mutating func updatePages(_ newReadPages: Int) {
-        readPages = newReadPages
-    }
-    
-    
-    //MARK: - Storing Method
-    
-    func save() {
-        UserDefaults.standard.set(self, forKey: id)
-    }
-    
-    func remove() {    //TODO: notes, isLiked, readPages 중 어디에도 활동기록이 없다면 자동으로 remove되는 기능
-        UserDefaults.standard.removeObject(forKey: id)
+        process.readPages = newReadPages
     }
     
 }

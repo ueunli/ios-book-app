@@ -19,10 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = MainViewController()
         window?.makeKeyAndVisible()
+        UserDefaultsManager.bookIDs = Set(UserDefaults.standard.stringArray(forKey: "UserBooks") ?? [])
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        
+        UserDefaults.standard.set(Array(UserDefaultsManager.bookIDs), forKey: "UserBooks")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

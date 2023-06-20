@@ -5,7 +5,7 @@
 //  Created by J.E on 2023/05/24.
 //
 
-enum BookCategory: Int, CaseIterable {
+enum BookCategory: Int, Codable {
     
     case all = 0
     case literature = 1
@@ -120,9 +120,17 @@ enum BookCategory: Int, CaseIterable {
             return "큰글자책"
         case .unClassified:
             return "미분류"
-        @unknown default:
+        @unknown case _:
             return "기타"
         }
+    }
+    
+}
+
+extension BookCategory: CaseIterable {
+    
+    static func == (lhs: BookCategory, rhs: BookCategory) -> Bool {
+        lhs.rawValue == rhs.rawValue
     }
     
 }
